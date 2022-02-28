@@ -2,9 +2,11 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {}
+index = {"filter_post": "01_fb_scraper.ipynb",
+         "extract_comments": "01_fb_scraper.ipynb",
+         "FbScraper": "01_fb_scraper.ipynb"}
 
-modules = []
+modules = ["fb_scraper.py"]
 
 doc_url = "https://MJPansa.github.io/scrapinghub/"
 
