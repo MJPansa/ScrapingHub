@@ -18,6 +18,10 @@ from facebook_scraper import *
 def filter_post(post:dict, keywords:list=None) -> pd.DataFrame:
     '''
     Function to filter a post `dict` for keywords
+
+    Args:
+        `post`: the post object to be filtered
+        `keywords` : optional list of keywords to use instead of default
     '''
     post_keys = ['post_id', 'text', 'post_text', 'time', 'timestamp', 'likes', 'comments','shares',
                  'post_url', 'user_id', 'username','user_url', 'reactions',
@@ -28,10 +32,10 @@ def filter_post(post:dict, keywords:list=None) -> pd.DataFrame:
     try:
         post_dict = {key: post[key] for key in post_keys}
     except Exception as e:
-        print("Key not found in post dict")
+        print("At least one key not found in post dict")
         raise e
 
-    return pd.Dataframe(post_dict, index=0)
+    return pd.DataFrame(post_dict, index=[0])
 
 # Cell
 
@@ -40,8 +44,8 @@ def extract_comments(comments:list, meta:dict) -> pd.DataFrame:
     Function to extract comments from Facebook posts
 
     Args:
-        comments: list of dictionaries. Each comment is a dictionary
-        meta: dictionary that contains meta information from the post
+        `comments`: list of dictionaries. Each comment is a dictionary
+        `meta`: dictionary that contains meta information from the post
     """
     comment_keys = ['comment_id', 'comment_url', 'comment_text', 'comment_time',
                     'comment_reactions', 'comment_reaction_count', 'replies']
@@ -69,6 +73,9 @@ class FbScraper:
         """
         start scraping using the current configuration
         """
+
+        return
+
         post_ids = list()
         saved_posts = []
         for i, row in progressbar.progressbar(list(df_sites.iterrows())):

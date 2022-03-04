@@ -57,6 +57,9 @@ nb_path: "01_fb_scraper.ipynb"
 <h4 id="filter_post" class="doc_header"><code>filter_post</code><a href="https://github.com/MJPansa/scrapinghub/tree/master/scrapinghub/fb_scraper.py#L18" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>filter_post</code>(<strong><code>post</code></strong>:<code>dict</code>, <strong><code>keywords</code></strong>:<code>list</code>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Function to filter a post <code>dict</code> for keywords</p>
+<p>Args:
+    <code>post</code>: the post object to be filtered
+    <code>keywords</code> : optional list of keywords to use instead of default</p>
 
 </div>
 
@@ -86,12 +89,12 @@ nb_path: "01_fb_scraper.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="extract_comments" class="doc_header"><code>extract_comments</code><a href="https://github.com/MJPansa/scrapinghub/tree/master/scrapinghub/fb_scraper.py#L38" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>extract_comments</code>(<strong><code>comments</code></strong>:<code>list</code>, <strong><code>meta</code></strong>:<code>dict</code>)</p>
+<h4 id="extract_comments" class="doc_header"><code>extract_comments</code><a href="https://github.com/MJPansa/scrapinghub/tree/master/scrapinghub/fb_scraper.py#L42" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>extract_comments</code>(<strong><code>comments</code></strong>:<code>list</code>, <strong><code>meta</code></strong>:<code>dict</code>)</p>
 </blockquote>
 <p>Function to extract comments from Facebook posts</p>
 <p>Args:
-    comments: list of dictionaries. Each comment is a dictionary
-    meta: dictionary that contains meta information from the post</p>
+    <code>comments</code>: list of dictionaries. Each comment is a dictionary
+    <code>meta</code>: dictionary that contains meta information from the post</p>
 
 </div>
 
@@ -114,7 +117,7 @@ nb_path: "01_fb_scraper.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="FbScraper" class="doc_header"><code>class</code> <code>FbScraper</code><a href="https://github.com/MJPansa/scrapinghub/tree/master/scrapinghub/fb_scraper.py#L55" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>FbScraper</code>(<strong><code>site</code></strong>:<code>str</code>, <strong><code>stop_date</code></strong>:<code>str</code>, <strong><code>num_pages</code></strong>:<code>int</code>=<em><code>100</code></em>, <strong><code>timeout</code></strong>:<code>set</code>=<em><code>(60, 120)</code></em>)</p>
+<h2 id="FbScraper" class="doc_header"><code>class</code> <code>FbScraper</code><a href="https://github.com/MJPansa/scrapinghub/tree/master/scrapinghub/fb_scraper.py#L59" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>FbScraper</code>(<strong><code>site</code></strong>:<code>str</code>, <strong><code>stop_date</code></strong>:<code>str</code>, <strong><code>num_pages</code></strong>:<code>int</code>=<em><code>100</code></em>, <strong><code>timeout</code></strong>:<code>set</code>=<em><code>(60, 120)</code></em>)</p>
 </blockquote>
 <p>A scraper object that runs the scraping process and stores posts and comments</p>
 
@@ -138,6 +141,26 @@ nb_path: "01_fb_scraper.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scraper</span> <span class="o">=</span> <span class="n">FbScraper</span><span class="p">(</span><span class="n">site</span><span class="o">=</span><span class="s1">&#39;hvv&#39;</span><span class="p">,</span> <span class="n">stop_date</span><span class="o">=</span><span class="s1">&#39;01-01-2022&#39;</span><span class="p">)</span>
+<span class="n">scraper</span><span class="o">.</span><span class="n">set_cookie</span><span class="p">({</span><span class="s1">&#39;cookie&#39;</span><span class="p">:</span><span class="s1">&#39;asfkh21u8reuafhgkaushf&#39;</span><span class="p">})</span>
+
+<span class="n">scraper</span><span class="o">.</span><span class="n">scrape</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 <div class="output_wrapper">
 <div class="output">
@@ -146,7 +169,7 @@ nb_path: "01_fb_scraper.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="FbScraper.__init__" class="doc_header"><code>FbScraper.__init__</code><a href="https://github.com/MJPansa/scrapinghub/tree/master/scrapinghub/fb_scraper.py#L59" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>FbScraper.__init__</code>(<strong><code>site</code></strong>:<code>str</code>, <strong><code>stop_date</code></strong>:<code>str</code>, <strong><code>num_pages</code></strong>:<code>int</code>=<em><code>100</code></em>, <strong><code>timeout</code></strong>:<code>set</code>=<em><code>(60, 120)</code></em>)</p>
+<h4 id="FbScraper.__init__" class="doc_header"><code>FbScraper.__init__</code><a href="https://github.com/MJPansa/scrapinghub/tree/master/scrapinghub/fb_scraper.py#L63" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>FbScraper.__init__</code>(<strong><code>site</code></strong>:<code>str</code>, <strong><code>stop_date</code></strong>:<code>str</code>, <strong><code>num_pages</code></strong>:<code>int</code>=<em><code>100</code></em>, <strong><code>timeout</code></strong>:<code>set</code>=<em><code>(60, 120)</code></em>)</p>
 </blockquote>
 <p>Initialize self.  See help(type(self)) for accurate signature.</p>
 
@@ -171,7 +194,7 @@ nb_path: "01_fb_scraper.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="FbScraper.set_cookie" class="doc_header"><code>FbScraper.set_cookie</code><a href="https://github.com/MJPansa/scrapinghub/tree/master/scrapinghub/fb_scraper.py#L64" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>FbScraper.set_cookie</code>(<strong><code>cookie</code></strong>:<code>dict</code>)</p>
+<h4 id="FbScraper.set_cookie" class="doc_header"><code>FbScraper.set_cookie</code><a href="https://github.com/MJPansa/scrapinghub/tree/master/scrapinghub/fb_scraper.py#L68" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>FbScraper.set_cookie</code>(<strong><code>cookie</code></strong>:<code>dict</code>)</p>
 </blockquote>
 <p>Set a cookie to use for scraping FB. Usually grab from Dataiku globals</p>
 
@@ -196,7 +219,7 @@ nb_path: "01_fb_scraper.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="FbScraper.scrape" class="doc_header"><code>FbScraper.scrape</code><a href="https://github.com/MJPansa/scrapinghub/tree/master/scrapinghub/fb_scraper.py#L68" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>FbScraper.scrape</code>()</p>
+<h4 id="FbScraper.scrape" class="doc_header"><code>FbScraper.scrape</code><a href="https://github.com/MJPansa/scrapinghub/tree/master/scrapinghub/fb_scraper.py#L72" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>FbScraper.scrape</code>()</p>
 </blockquote>
 <p>start scraping using the current configuration</p>
 
